@@ -148,4 +148,15 @@ while counting <= 20 {
 }
 print("Ready or not, here I come!")
 
+//INFINITE LOOPS
 
+var counterMusic = 0
+
+while true {
+    print(".")
+    counterMusic += 1
+
+    if counterMusic == 273 {
+        break
+    }
+}
