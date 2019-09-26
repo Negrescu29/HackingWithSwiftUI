@@ -115,3 +115,37 @@ outerLoop: for i in 1...10 {
         }
     }
 }
+
+print("")
+//SKIPPING ITEMS - use `continue`
+
+for i in 1...10 {
+    if i % 2 == 1 {
+        continue
+    }
+
+    print("\(i) este un numar par")
+}
+
+let fibonacci = [1, 1, 2, 3, 5, 8, 13, 21]
+var position = 0
+while position <= 7 {
+    let value = fibonacci[position]
+    position += 1
+    if value < 2 {
+       continue
+    }
+    print("Fibonacci number \(position) is \(value)")
+}
+
+var counting = 0
+while counting <= 20 {
+    counting += 1
+    if counting > 5 {
+        continue
+    }
+    print("\(counting)...")
+}
+print("Ready or not, here I come!")
+
+
