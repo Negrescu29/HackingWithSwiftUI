@@ -66,4 +66,22 @@ while cats < 10 {
     }
 }
 
+//REPEAT LOOPS
+
+var mereInCos = 1
+
+repeat {
+    print("\(mereInCos) mere sunt in cos")
+    mereInCos += 1
+} while mereInCos <= 20
+
+print("Cosul cu mere e plin")
+
+while false {
+    print("It's false")
+}
+
+repeat{
+    print("This false statment runs at least once")
+} while false
 
