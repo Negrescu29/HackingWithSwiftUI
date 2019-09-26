@@ -24,3 +24,46 @@ for _ in 1...5 {
 for _ in 0...3 {
     print("Hip hip hurray!")
 }
+
+//WHILE
+
+var number = 1
+
+while number <= 20 {
+    print("Numarul este egal cu: \(number)")
+    number += 2
+}
+
+print("\(number) nu este mai mic decit 20")
+
+print("            ")
+
+
+let colors = ["Red", "Green", "Blue", "Orange", "Yellow"]
+var colorCounter = 0
+while colorCounter < 5 {
+    print("\(colors[colorCounter]) is a popular color.")
+    colorCounter += 1
+}
+
+print("            ")
+
+var counter = 2
+while counter < 64 {
+    print("\(counter) is a power of 2.")
+    counter *= 2
+}
+
+print("")
+
+var cats: Int = 0
+while cats < 10 {
+    cats += 1
+    print("I have \(cats) cats. I'm getting another cat.")
+    if cats == 4 {
+        print("Enough cats!")
+        cats = 10
+    }
+}
+
+
