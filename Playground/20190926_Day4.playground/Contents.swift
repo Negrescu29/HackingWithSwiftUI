@@ -85,3 +85,18 @@ repeat{
     print("This false statment runs at least once")
 } while false
 
+print("")
+//EXITING LOOP
+
+var countDown = 10
+
+while countDown >= 0 {
+    print(countDown)
+
+    if countDown == 4 {
+        print("I'm bored. Let's go now!")
+        break
+    }
+
+    countDown -= 1
+}
