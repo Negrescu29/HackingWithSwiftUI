@@ -29,5 +29,35 @@ func calculateAge(yearBorn: Int) -> Int {
     return (Int(yearString) ?? 0) - yearBorn
 }
 
-print(calculateAge(yearBorn: 1994))
+print("Eu am \(calculateAge(yearBorn: 1994)) de ani")
 
+
+
+//Accepting parameters - values in functions are called parameters
+
+func square(number: Int){
+    print(number * number)
+}
+square(number: 19)
+
+
+func calculateSalary(numberOfHoursWorked: Double, salary: Double){
+    let salary = numberOfHoursWorked * salary
+    print("My salary for this week is: \(salary) 💶")
+}
+calculateSalary(numberOfHoursWorked: 11.50, salary: 10.5)
+
+
+func calculateWagePerHour(amountOfMoneyReceived: Double, hoursWorkedThisWeek: Double){
+    print("Your wage per hour is:  \(amountOfMoneyReceived / hoursWorkedThisWeek)")
+}
+calculateWagePerHour(amountOfMoneyReceived: 120.75, hoursWorkedThisWeek: 11.5)
+
+
+func square(numbers: [Int]) {
+    for number in numbers {
+        let squared = number * number
+        print("\(number) squared is \(squared).")
+    }
+}
+square(numbers: [2, 3, 4])
