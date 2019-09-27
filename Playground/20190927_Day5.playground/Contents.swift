@@ -183,3 +183,12 @@ func strokeCat(_ name: String) throws {
         print("You stroked \(name).")
     }
 }
+
+// Running throwing functions
+
+do {
+    try checkPassword("Password")
+    print("The password was good")
+} catch {
+    print("You can't use this password")
+}
