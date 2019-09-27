@@ -101,6 +101,14 @@ func sayHello(to name: String) {
     print("Hello, \(name)!")
 }
 
-sayHello(to: "Irina!")
+sayHello(to: "Irina")
 
 
+
+//Omitting parameter labels
+
+func greet(_ person: String) {
+    print("Hello, \(person)!")
+}
+
+greet("Taylor")
