@@ -61,3 +61,33 @@ func square(numbers: [Int]) {
     }
 }
 square(numbers: [2, 3, 4])
+
+
+
+//Returning values
+
+func calculateRemainingBalance(initialBalance: Double, amountWithdrawn: Double) -> Double {
+    let remainingBalance = initialBalance - amountWithdrawn
+    return remainingBalance
+    }
+
+    
+let balance = calculateRemainingBalance(initialBalance: 11_150.92, amountWithdrawn: 345.98)
+    
+print("My balance = \(balance) 💶")
+
+
+func estimateCost(units: Int) -> String {
+    switch units {
+    case 0...10:
+        return "\(units * 10)"
+    case 11...50:
+        return "\(units * 9)"
+    case 51...100:
+        return "\(units * 8)"
+    default:
+        return "We can't make that many."
+    }
+}
+
+print(estimateCost(units: 13))
