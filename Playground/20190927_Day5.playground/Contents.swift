@@ -117,7 +117,7 @@ greet("Taylor")
 
 //Default parameters
 func pickedStock(stockName: String, picker: Bool = true){
-    if picker == true {
+    if picker  {
         print("You should invest in this stock, this stock was picked by Emmet")
     } else {
         print("Better don't invest in this stock")
@@ -140,3 +140,16 @@ func pickedStockAdvisor(stockName: String, picker: String = "Emmet"){
 
 pickedStockAdvisor(stockName: "Netflix", picker: "Emmet")
 pickedStockAdvisor(stockName: "Netflix", picker: "Rory")
+
+
+//Variadic functions - you can pass any number of parameters of the same time
+
+func square(numbers: Int...) {
+    for number in numbers {
+        print("\(number) squared is \(number * number)")
+    }
+}
+
+square(numbers: 1, 2, 3, 4, 5)
+
+
