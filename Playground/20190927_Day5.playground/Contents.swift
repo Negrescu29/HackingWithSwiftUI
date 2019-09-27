@@ -192,3 +192,15 @@ do {
 } catch {
     print("You can't use this password")
 }
+
+
+//inout parameters - all parameters passed into a function are `let` if you want to change that you can use `inout` this will be reflected on the return
+
+func doubleInPlace(number: inout Int) {
+    number *= 2
+}
+
+var myNum = 10
+doubleInPlace(number: &myNum)
+
+
