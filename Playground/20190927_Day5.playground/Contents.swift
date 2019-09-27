@@ -112,3 +112,31 @@ func greet(_ person: String) {
 }
 
 greet("Taylor")
+
+
+
+//Default parameters
+func pickedStock(stockName: String, picker: Bool = true){
+    if picker == true {
+        print("You should invest in this stock, this stock was picked by Emmet")
+    } else {
+        print("Better don't invest in this stock")
+        
+    }
+}
+
+pickedStock(stockName: "Amazon")
+pickedStock(stockName: "Nike", picker: false)
+pickedStock(stockName: "Wix", picker: true)
+
+func pickedStockAdvisor(stockName: String, picker: String = "Emmet"){
+    if picker == "Emmet" {
+        print("You should invest in this stock, \(stockName) was picked by Emmet")
+    } else {
+        print("Better don't invest in this stock")
+        
+    }
+}
+
+pickedStockAdvisor(stockName: "Netflix", picker: "Emmet")
+pickedStockAdvisor(stockName: "Netflix", picker: "Rory")
