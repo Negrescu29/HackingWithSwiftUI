@@ -169,3 +169,17 @@ func checkPassword(_ password: String) throws -> Bool {
 
 //try checkPassword("  23")
 //try checkPassword("password")
+
+enum CatProblems: Error {
+    case notACat
+    case unfriendly
+}
+func strokeCat(_ name: String) throws {
+    if name == "Mr Bitey" {
+        throw CatProblems.unfriendly
+    } else if name == "Lassie" {
+        throw CatProblems.notACat
+    } else {
+        print("You stroked \(name).")
+    }
+}
