@@ -91,3 +91,16 @@ func estimateCost(units: Int) -> String {
 }
 
 print(estimateCost(units: 13))
+
+
+
+//Parameter labels
+
+// `to` is to use externally & `name` is to use internally
+func sayHello(to name: String) {
+    print("Hello, \(name)!")
+}
+
+sayHello(to: "Irina!")
+
+
