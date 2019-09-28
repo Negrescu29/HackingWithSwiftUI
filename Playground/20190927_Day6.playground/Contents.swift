@@ -88,4 +88,33 @@ func travel(action: () -> Void) {
 travel(action: driving)
 travel(action: learnSwift)
 
+print("")
 
+//Trailing closure syntax
+
+let notificationClosure = {
+    print ("Your have one new notification")
+}
+
+func notification (newNotification: () -> Void) {
+    newNotification()
+    print("Please read the notification")
+    print("You have won in lottery 💶💶💶💶💶💶💶💶")
+    
+}
+//trailling
+notification {
+    print ("You have one new notification")
+}
+
+print("")
+
+
+func holdClass(name: String, lesson: () -> Void) {
+    print("Welcome to \(name)!")
+    lesson()
+    print("Make sure your homework is done by next week.")
+}
+holdClass(name: "Philosophy 101") {
+    print("All we are is dust in the wind, dude.")
+}
