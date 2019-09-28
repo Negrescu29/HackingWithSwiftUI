@@ -68,3 +68,24 @@ let measureSize = { (inches: Int) -> String in
     }
 }
 measureSize(36)
+
+//Closures as parameters
+
+//Look up for driving closure
+
+//let driving = {
+//    print("I'm driving in my car")
+//}
+
+//If we wanted to pass that closure into a function so it can be run inside that function, we would specify the parameter type as `() -> Void`. That means “accepts no parameters, and returns Void” – Swift’s way of saying “nothing”. `action` is parameter label
+
+func travel(action: () -> Void) {
+    print("I'm getting ready to go.")
+    action()
+    print("I arrived!")
+}
+
+travel(action: driving)
+travel(action: learnSwift)
+
+
