@@ -211,3 +211,100 @@ func authenticate(algorithm: (String, String) -> Bool) {
         print("Try again.")
     }
 }
+
+
+//Returning closures from functions
+
+func travel() -> (String) -> Void {
+    return {
+        print("I'm going to \($0)")
+    }
+}
+//We can now call travel() to get back that closure, then call it as a function
+let result = travel()
+result("London")
+
+func createValidator() -> (String) -> Bool {
+    return {
+        if $0 == "twostraws" {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+let validator = createValidator()
+print(validator("twostraws"))
+
+
+func makeRecorder(media: String) -> () -> String {
+    switch media {
+    case "podcast":
+        return {
+            return "I'm recording a podcast"
+        }
+    default:
+        return {
+            return "I'm recording a video"
+        }
+    }
+}
+let recorder = makeRecorder(media: "podcast")
+print(recorder())
+
+
+func createTravelMethod(distance: Int) -> (String) -> Void {
+    if distance < 5 {
+        return {
+            print("I'm walking to \($0).")
+        }
+    } else if distance < 20 {
+        return {
+            print("I'm cycling to \($0).")
+        }
+    } else {
+        return {
+            print("I'm driving to \($0).")
+        }
+    }
+}
+let travelMethod = createTravelMethod(distance: 15)
+travelMethod("London")
+
+func makeCodeGenerator(language: String) -> () -> Void {
+    if language == "Swift" {
+        return {
+           print ("Swift rocks!")
+        }
+    } else {
+        return {
+            print ("Other languages are pretty great too!")
+        }
+    }
+}
+let generator = makeCodeGenerator(language: "Swift")
+generator()
+
+
+func createAgeCheck(strict: Bool) -> (Int) -> Bool {
+    if strict {
+        return {
+            if $0 <= 21 {
+                return true
+            } else {
+                return false
+            }
+        }
+    } else {
+        return {
+            if $0 <= 18 {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+}
+let ageCheck = createAgeCheck(strict: true)
+let result = ageCheck(20)
+print(result)
