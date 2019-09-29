@@ -306,5 +306,111 @@ func createAgeCheck(strict: Bool) -> (Int) -> Bool {
     }
 }
 let ageCheck = createAgeCheck(strict: true)
-let result = ageCheck(20)
-print(result)
+let result1 = ageCheck(20)
+print(result1)
+
+
+//Capturing values
+
+func eating() -> (String) -> Void {
+    var counter = 1
+    return {
+        print("\(counter). I'm going to \($0)")
+        counter += 1
+    }
+    
+}
+
+let consequences = eating()
+consequences("Sushi")
+consequences("Burger")
+consequences("Noodles")
+
+func makeAdder() -> (Int) -> Void {
+    var sum = 0
+    return {
+        sum += $0
+        print("Sum is now \(sum)")
+    }
+}
+let adder = makeAdder()
+adder(5)
+adder(3)
+
+
+func swingBat() -> () -> Void {
+    var strikes = 0
+    return {
+        strikes += 1
+        if strikes >= 3 {
+            print("You're out!")
+        } else {
+            print("Strike \(strikes)")
+        }
+    }
+}
+let swing = swingBat()
+swing()
+swing()
+swing()
+
+func translate(language: String) -> (String) -> String {
+    return {
+        if language == "French" {
+            if $0 == "Hello" {
+                return "Bonjour"
+            } else {
+                return "\($0) is unknown."
+            }
+        } else {
+            return "Unknown language."
+        }
+    }
+}
+let translator = translate(language: "French")
+let french = translator("Hello")
+
+
+func storeTwoValues(value1: String, value2: String) -> (String) -> String {
+    var previous = value1
+    var current = value2
+    return { new in
+        let removed = previous
+        previous = current
+        current = new
+        return "Removed \(removed)"
+    }
+}
+let store = storeTwoValues(value1: "Hello", value2: "World")
+let removed = store("Value Three")
+print(removed)
+
+
+func visitPlaces() -> (String) -> Void {
+    var places = [String: Int]()
+    return {
+        places[$0, default: 0] += 1
+        let timesVisited = places[$0, default: 0]
+        print("Number of times I've visited \($0): \(timesVisited).")
+    }
+}
+let visit = visitPlaces()
+visit("London")
+visit("New York")
+visit("London")
+
+
+func summonGenie(wishCount: Int) -> (String) -> Void {
+    var currentWishes = wishCount
+    return {
+        if currentWishes > 0 {
+            currentWishes -= 1
+            print("You wished for \($0).")
+            print("Wishes left: \(currentWishes)")
+        } else {
+            print("You're out of wishes.")
+        }
+    }
+}
+let genie = summonGenie(wishCount: 3)
+genie("a Ferrari")
