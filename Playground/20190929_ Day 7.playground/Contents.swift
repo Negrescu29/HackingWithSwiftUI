@@ -68,3 +68,62 @@ processPrimes { (prime: Int) in
     let square = prime * prime
     print("\(prime) squared is \(square)")
 }
+
+print("")
+
+// Using closures as parameters when they return values
+
+func travel(action: (String) -> String) {
+    print("I'm getting ready to go.")
+    let description = action("London")
+    print(description)
+    print("I arrived!")
+}
+
+travel { (place: String) -> String in
+    return "I'm going to \(place) in my car"
+}
+
+func loadData(input: () -> String) {
+    print("Loading...")
+    let str = input()
+    print("Loaded: \(str)")
+}
+loadData {
+    return "He thrusts his fists against the posts"
+}
+
+func manipulate(numbers: [Int], using algorithm: (Int) -> Int) {
+    for number in numbers {
+        let result = algorithm(number)
+        print("Manipulating \(number) produced \(result)")
+    }
+}
+manipulate(numbers: [1, 2, 3]) { number in
+    return number * number
+}
+
+func encrypt(password: String, using algorithm: (String) -> String) {
+    print("Encrypting password...")
+    let result = algorithm(password)
+    print("The result is \(result)")
+}
+encrypt(password: "t4ylor") { (password: String) in
+    print("Using top secret encryption!")
+    return "SECRET" + password + "SECRET"
+}
+
+func bakeCookies(number: Int, secretIngredient: () -> String) {
+    for _ in 0..<number {
+        print("Adding butter...")
+        print("Adding flour...")
+        print("Adding sugar...")
+        print("Adding egg...")
+        let extra = secretIngredient()
+        print(extra)
+    }
+}
+bakeCookies(number: 2) {
+    return "Adding vanilla extract"
+}
+
