@@ -146,3 +146,68 @@ makeMoney {
     return ("Tommorow I am working in \($0)")
 }
 
+print("")
+
+// Closures with multiple parameters
+
+func running (action: (String, Int) -> String) {
+    print("I need to prepare for marathon")
+    let description = action("run", 7)
+    print(description)
+    print("Then I will be ready")
+}
+    // using shorthand parameters
+running { (action, days) in
+    return("To accomplish this, I need to \(action)  \(days) days a week 🏃🏿‍♂️")
+}
+
+    //even shorter, we let swift to provide names by using \($0)
+running {
+    return("To accomplish this, I need to \($0)  \($1) days a week 🏃🏻‍♀️")
+}
+
+func getTransport(destination: String, method: (String, Int) -> Bool) {
+    let maxCost = 10
+    let result = method(destination, maxCost)
+    if result {
+        print("OK, you can travel.")
+    } else {
+        print("Sorry, you need more money.")
+    }
+}
+ 
+func playSong(instrumentClosure: (String, Int) -> Void) {
+    let song = "Stairway to Heaven"
+    let volume = 11
+    print("I'm going to play \(song)...")
+    instrumentClosure(song, volume)
+}
+
+
+func makeSandwich(type sandwichType: String, condimentClosure: (String) -> String) {
+    print("First you make a basic \(sandwichType) sandwich.")
+    print("Next, you add condiments...")
+    let newSandwichType = condimentClosure(sandwichType)
+    print("Now you have a \(newSandwichType).")
+}
+
+
+func runBarbecue(foods: [String], grillTechnique: (String, Int) -> Void) {
+    let spiceLevel = 10
+    for food in foods {
+        grillTechnique(food, spiceLevel)
+    }
+}
+
+
+func authenticate(algorithm: (String, String) -> Bool) {
+    print("Authenticating user")
+    let username = "twostraws"
+    let password = "fr0sties"
+    let result = algorithm(username, password)
+    if result {
+        print("You're in!")
+    } else {
+        print("Try again.")
+    }
+}
