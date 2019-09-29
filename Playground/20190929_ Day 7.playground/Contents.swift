@@ -127,3 +127,22 @@ bakeCookies(number: 2) {
     return "Adding vanilla extract"
 }
 
+print("")
+
+// Shorthand parameter names
+
+func makeMoney (butlers: (String) -> String){
+    print("I need to go to work tommorow")
+    let shop = butlers("51 Grafton")
+    print(shop)
+    print("I hope it's not gonna be busy")
+}
+    // shorthand parameters
+makeMoney { place in
+    return ("Tommorow I am working in \(place)")
+}
+    //even shorter, we let swift to provide names by using \($0)
+makeMoney {
+    return ("Tommorow I am working in \($0)")
+}
+
