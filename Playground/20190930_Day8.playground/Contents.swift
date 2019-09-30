@@ -275,3 +275,14 @@ struct Bicycle {
         print("I'm now in gear \(currentGear).")
     }
 }
+
+
+// Properties and methods of strings - turns out they are structs – they have their own methods and properties we can use to query and manipulate the string.
+
+let string = "Do or do not, there is no try."
+print(string.count)
+print(string.lowercased())
+print(string.uppercased())
+print(string.sorted())
+
+
