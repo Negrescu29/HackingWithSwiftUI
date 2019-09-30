@@ -132,3 +132,74 @@ struct BankAccount {
 }
 var isMillionare = BankAccount(name: "Roman Abramovich", isMillionnaire: true, balance: 200_000)
 isMillionare.balance = 345_000
+
+// Methods - Functions inside structs are called methods, but they still use the same func keyword.
+
+struct City {
+    var population: Int
+    
+    func collectTaxes() -> Int {
+        return population * 1000
+    }
+}
+let london = City(population: 9_000_000)
+london.collectTaxes()
+
+
+struct Phone{
+    var screenPrice: Double
+    var cameraPrice: Double
+    var ramPrice: Double
+    
+    func calculatePhonePrice() -> Double{
+        return screenPrice + cameraPrice + ramPrice
+    }
+}
+let apple = Phone(screenPrice: 250.50, cameraPrice: 134, ramPrice: 321.21)
+print(apple.calculatePhonePrice())
+
+struct Venue {
+    var name: String
+    var maximumCapacity: Int
+    func makeBooking(for people: Int) {
+        if people > maximumCapacity {
+            print("Sorry, we can only accommodate \(maximumCapacity).")
+        } else {
+            print("\(name) is all yours!")
+        }
+    }
+}
+let venue = Venue(name: "Dacia Marin", maximumCapacity: 100)
+print(venue.maximumCapacity)
+print(venue.makeBooking(for: 99))
+
+
+struct Customer {
+    var name: String
+    var street: String
+    var city: String
+    var postalCode: String
+    func printAddress() -> String {
+        return """
+        \(name)
+        \(street)
+        \(city)
+        \(postalCode)
+        """
+    }
+}
+
+
+struct XWing {
+    var callSign: String
+    func startTrenchRun() -> Bool {
+        if callSign == "Red 5" {
+            print("I'm going to blow up the Death Star!")
+            return true
+        } else {
+            print("I'm hit!")
+            return false
+        }
+    }
+}
+
