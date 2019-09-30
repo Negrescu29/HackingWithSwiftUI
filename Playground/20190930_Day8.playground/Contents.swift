@@ -286,3 +286,21 @@ print(string.uppercased())
 print(string.sorted())
 
 
+// Properties and methods of arrays - are also structs, which means they too have their own methods and properties we can use to query and manipulate the array
+// you can't append or remove items from a constant array.
+var toys = ["Griznulea", "Urechilkin","Morjuleani"]
+
+toys.capacity
+toys.append("Racooncik")
+print(toys)
+print(toys.sorted())
+
+
+var usedNumbers = [Int]()
+for i in 1...10 {
+    usedNumbers.append(i)
+}
+usedNumbers.count > 5
+
+
+
