@@ -203,3 +203,75 @@ struct XWing {
     }
 }
 
+
+// Mutating methods -
+//If a struct has a variable property but the instance of the struct was created as a constant, that property can’t be changed – the struct is constant, so all its properties are also constant regardless of how they were created.
+//When you want to change a property inside a method, you need to mark it using the mutating keyword, like this:
+
+struct Person {
+    var name: String
+    
+    mutating func makeAnonymous() {
+        name = "Anonymous"
+    }
+}
+// Because it changes the property, Swift will only allow that method to be called on Person instances that are variables:
+var person = Person(name: "Ed")
+person.makeAnonymous()
+
+
+struct Book {
+    var totalPages: Int
+    var pagesLeftToRead = 0
+    mutating func read(pages: Int) {
+        if pages < pagesLeftToRead {
+            pagesLeftToRead -= pages
+        } else {
+            pagesLeftToRead = 0
+            print("I'm done!")
+        }
+    }
+}
+
+
+struct MyBankAccount {
+    var balance: Int
+    mutating func donateToCharity(amount: Int) {
+        balance -= amount
+    }
+}
+
+struct MeetingRoom {
+    var isBooked = true
+    mutating func book(for name: String) {
+    if isBooked {
+    print("Sorry, the meeting room is already taken.")
+    } else {
+    isBooked = true
+    print("It's reserved for \(name).")
+    }
+    }
+}
+
+
+struct Delorean {
+    var speed = 0
+    mutating func accelerate() {
+        speed += 1
+        if speed == 88 {
+            travelThroughTime()
+        }
+    }
+    func travelThroughTime() {
+        print("Where we're going we don't need roads.")
+    }
+}
+
+
+struct Bicycle {
+    var currentGear: Int
+    mutating func changeGear(to newGear: Int) {
+        currentGear = newGear
+        print("I'm now in gear \(currentGear).")
+    }
+}
