@@ -99,4 +99,36 @@ struct Investor {
 let investor = Investor(age: 38)
 print(investor.investmentPlan)
 
+//Property observers - let you run code before or after any property changes
+//You can also use willSet to take action before a property changes, but that is rarely used.
+//You can't attach a property observer to a constant, because it will never change.
 
+struct Progress {
+    var task: String
+    var amount: Int {
+        didSet {
+            print("\(task) is now \(amount)% complete")
+        }
+    }
+}
+var progress = Progress(task: "Loading data", amount: 0)
+progress.amount = 30
+progress.amount = 80
+progress.amount = 100
+
+
+struct BankAccount {
+    var name: String
+    var isMillionnaire = false
+    var balance: Int {
+        didSet {
+            if balance > 1_000_000 {
+                isMillionnaire = true
+            } else {
+                isMillionnaire = false
+            }
+        }
+    }
+}
+var isMillionare = BankAccount(name: "Roman Abramovich", isMillionnaire: true, balance: 200_000)
+isMillionare.balance = 345_000
