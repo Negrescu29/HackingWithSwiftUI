@@ -71,3 +71,73 @@ struct Cabinet {
     }
 }
 let drawers = Cabinet(itemHeight: 1.4, itemWidth: 1.0)
+
+
+//Referring to the current instance -
+
+// - self.name(var name: String) aka property
+// - name(init(name: String)) aka parameter
+
+//if you create a Person struct with a name property , then tried to write an initializer(init)that accepted a name parameter, self helps you distinguish between the property and the parameter  – self.name refers to the property, whereas name refers to the parameter.
+
+struct Person {
+    var name: String
+    
+    init(name: String) {
+        print("\(name) was born!")
+        // self.name -> var name: Sting
+        // name -> init(name: String)
+        self.name = name
+    }
+}
+let ion = Person(name: "Ion")
+
+
+struct Conference {
+    var name: String
+    var location: String
+    init(name: String, location: String) {
+        self.name = name
+        self.location = location
+    }
+}
+let wwdc = Conference(name: "WWDC", location: "San Jose")
+
+struct Language {
+    var nameEnglish: String
+    var nameLocal: String
+    var speakerCount: Int
+    init(english: String, local: String, speakerCount: Int) {
+        self.nameEnglish = english
+        self.nameLocal = local
+        self.speakerCount = speakerCount
+    }
+}
+let french = Language(english: "French", local: "français", speakerCount: 220_000_000)
+
+
+struct Character {
+    var name: String
+    var actor: String
+    var probablyGoingToDie: Bool
+    init(name: String, actor: String) {
+        self.name = name
+        self.actor = actor
+        if self.actor == "Sean Bean" {
+            probablyGoingToDie = true
+        } else {
+            probablyGoingToDie = false
+        }
+    }
+}
+
+
+struct Cottage {
+    var rooms: Int
+    // here variable has a value, this is why it's not in the initializer 
+    var rating = 5
+    init(rooms: Int) {
+        self.rooms = rooms
+    }
+}
+let bailbrookHouse = Cottage(rooms: 4)
