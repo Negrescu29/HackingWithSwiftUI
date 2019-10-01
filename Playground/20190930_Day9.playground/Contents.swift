@@ -73,52 +73,71 @@ struct Cabinet {
 let drawers = Cabinet(itemHeight: 1.4, itemWidth: 1.0)
 
 
-//Static properties and methods
+//Referring to the current instance -
 
-struct Amplifier {
-    static let maximumVolume = 11
-    var currentVolume: Int
+// - self.name(var name: String) aka property
+// - name(init(name: String)) aka parameter
+
+//if you create a Person struct with a name property , then tried to write an initializer(init)that accepted a name parameter, self helps you distinguish between the property and the parameter  – self.name refers to the property, whereas name refers to the parameter.
+
+struct Person {
+    var name: String
+    
+    init(name: String) {
+        print("\(name) was born!")
+        // self.name -> var name: Sting
+        // name -> init(name: String)
+        self.name = name
+    }
 }
+let ion = Person(name: "Ion")
 
-struct NewsStory {
-    static var breakingNewsCount = 0
-    static var regularNewsCount = 0
-    var headline: String
-    init(headline: String, isBreaking: Bool) {
-        self.headline = headline
-        if isBreaking {
-            NewsStory.breakingNewsCount += 1
+
+struct Conference {
+    var name: String
+    var location: String
+    init(name: String, location: String) {
+        self.name = name
+        self.location = location
+    }
+}
+let wwdc = Conference(name: "WWDC", location: "San Jose")
+
+struct Language {
+    var nameEnglish: String
+    var nameLocal: String
+    var speakerCount: Int
+    init(english: String, local: String, speakerCount: Int) {
+        self.nameEnglish = english
+        self.nameLocal = local
+        self.speakerCount = speakerCount
+    }
+}
+let french = Language(english: "French", local: "français", speakerCount: 220_000_000)
+
+
+struct Character {
+    var name: String
+    var actor: String
+    var probablyGoingToDie: Bool
+    init(name: String, actor: String) {
+        self.name = name
+        self.actor = actor
+        if self.actor == "Sean Bean" {
+            probablyGoingToDie = true
         } else {
-            NewsStory.regularNewsCount += 1
+            probablyGoingToDie = false
         }
     }
 }
 
-struct Person {
-    static var population = 0
-    var name: String
-    init(personName: String) {
-        name = personName
-        Person.population += 1
+
+struct Cottage {
+    var rooms: Int
+    // here variable has a value, this is why it's not in the initializer 
+    var rating = 5
+    init(rooms: Int) {
+        self.rooms = rooms
     }
 }
-// static can be variables and methods inside the struct
-struct Pokemon {
-    static var numberCaught = 0
-    var name: String
-    static func catchPokemon() {
-        print("Caught!")
-        Pokemon.numberCaught += 1
-    }
-}
-
-//Structs summary
-
-// 1. You can create your own types using structures, which can have their own properties and methods.
-// 2. You can use stored properties or use computed properties to calculate values on the fly.
-// 3. If you want to change a property inside a method, you must mark it as mutating.
-//4. Initializers are special methods that create structs. You get a memberwise initializer by default, but if you create your own you must give all properties a value.
-// 5. Use the self constant to refer to the current instance of a struct inside a method.
-// 6. The lazy keyword tells Swift to create properties only when they are first used.
-// 7. You can share properties and methods across all instances of a struct using the static keyword.
-// 8. Access control lets you restrict what code can use properties and methods.
+let bailbrookHouse = Cottage(rooms: 4)
