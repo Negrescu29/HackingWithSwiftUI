@@ -134,10 +134,38 @@ struct Character {
 
 struct Cottage {
     var rooms: Int
-    // here variable has a value, this is why it's not in the initializer 
+    // here variable has a value, this is why it's not in the initializer
     var rating = 5
     init(rooms: Int) {
         self.rooms = rooms
     }
 }
 let bailbrookHouse = Cottage(rooms: 4)
+
+
+// Lazy properties
+// - Lazy properties can be used inside any kind of structs.
+// - Lazy properties are a performance optimization.
+// - You can assign lazy properties by calling a method.
+// - Lazy properties are created only when first accessed.
+
+struct FamilyTree {
+    init() {
+        print("Creating family tree!")
+    }
+}
+
+//We might use that FamilyTree struct as a property inside a Human struct, like this:
+
+struct Human {
+    var name: String
+    lazy var familyTree = FamilyTree()
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+var ed = Human(name: "Ed")
+
+//If we add the lazy keyword to the familyTree property, then Swift will only create the FamilyTree struct when it’s first accessed:
+ed.familyTree
