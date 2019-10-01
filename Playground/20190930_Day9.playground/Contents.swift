@@ -71,3 +71,43 @@ struct Cabinet {
     }
 }
 let drawers = Cabinet(itemHeight: 1.4, itemWidth: 1.0)
+
+
+//Static properties and methods
+
+struct Amplifier {
+    static let maximumVolume = 11
+    var currentVolume: Int
+}
+
+struct NewsStory {
+    static var breakingNewsCount = 0
+    static var regularNewsCount = 0
+    var headline: String
+    init(headline: String, isBreaking: Bool) {
+        self.headline = headline
+        if isBreaking {
+            NewsStory.breakingNewsCount += 1
+        } else {
+            NewsStory.regularNewsCount += 1
+        }
+    }
+}
+
+struct Person {
+    static var population = 0
+    var name: String
+    init(personName: String) {
+        name = personName
+        Person.population += 1
+    }
+}
+// static can be variables and methods inside the struct 
+struct Pokemon {
+    static var numberCaught = 0
+    var name: String
+    static func catchPokemon() {
+        print("Caught!")
+        Pokemon.numberCaught += 1
+    }
+}
