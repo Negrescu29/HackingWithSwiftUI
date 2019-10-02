@@ -6,7 +6,9 @@ import UIKit
 2. You can create a class based on an existing class – it inherits all the properties and methods of the original class, and can add its own on top.
 3. When you copy a struct, both the original and the copy are different things. When you copy a class, both the original and the copy point to the same thing, so changing one does change the other.
 4. Classes can have deinitializers – code that gets run when an instance of a class is destroyed.
-5.
+5. If you have a constant struct with a variable property, that property can’t be changed because the struct itself is constant.
+ 
+ However, if you have a constant class with a variable property, that property can be changed. Because of this, classes don’t need the mutating keyword with methods that change properties; that’s only needed with structs.
 
 */
 
@@ -161,13 +163,13 @@ final class Person {
     }
 }
 // can't inherit from a final class
-class Young: Person {}
-
-final class Landmark { }
-final class Monument: Landmark { }
-
-class Magazine { }
-final class FashionMagazine: Magazine { }
+//class Young: Person {}
+//
+//final class Landmark { }
+//final class Monument: Landmark { }
+//
+//class Magazine { }
+//final class FashionMagazine: Magazine { }
 
 //Copying objects
 
@@ -254,6 +256,27 @@ for _ in 1...3 {
     let person = Om()
     person.printGreeting()
 }
+
+//Mutability - if class param is constant you can;t change the value
+
+class Celeb {
+    let name = "Taylor Swift"
+}
+
+let taylor = Celeb()
+taylor.name = "Ed Sheeran"
+print(taylor.name)
+
+
+class Pizza {
+    private var toppings = [String]()
+    func add(topping: String) {
+        toppings.append(topping)
+    }
+}
+var pizza = Pizza()
+pizza.add(topping: "Mushrooms")
+
 
 
 
