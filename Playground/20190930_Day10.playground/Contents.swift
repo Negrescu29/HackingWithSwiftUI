@@ -4,7 +4,9 @@ import UIKit
 /*Classes have 5 difference:
 1. If you have parameters in your class you must always create your own initializer
 2. You can create a class based on an existing class – it inherits all the properties and methods of the original class, and can add its own on top.
- 
+3. When you copy a struct, both the original and the copy are different things. When you copy a class, both the original and the copy point to the same thing, so changing one does change the other.
+4.
+5.
 
 */
 
@@ -166,3 +168,66 @@ final class Monument: Landmark { }
 
 class Magazine { }
 final class FashionMagazine: Magazine { }
+
+//Copying objects
+
+class Singer {
+    var name = "Taylor Swift"
+}
+var singer = Singer()
+print(singer.name)
+
+var singerCopy = singer
+singerCopy.name = "Justin Bieber"
+print(singer.name)
+
+
+struct Actors {
+    var name = "Jim Carey"
+}
+var actor = Actors()
+print(actor.name)
+
+var actorCopy = actor
+actorCopy.name = "John Travolta"
+print(actorCopy.name)
+
+
+struct GalacticaCrew {
+    var isCylon = false
+}
+var starbuck = GalacticaCrew()
+var tyrol = starbuck
+tyrol.isCylon = true
+print(starbuck.isCylon)
+print(tyrol.isCylon)
+
+class Starship {
+    var maxWarp = 9.0
+}
+var voyager = Starship()
+voyager.maxWarp = 9.975
+var enterprise = voyager
+enterprise.maxWarp = 9.6
+print(voyager.maxWarp)
+print(enterprise.maxWarp)
+
+class Author {
+    var name = "Anonymous"
+}
+var dickens = Author()
+dickens.name = "Charles Dickens"
+var austen = dickens
+austen.name = "Jane Austen"
+print(dickens.name)
+print(austen.name)
+
+class Hospital {
+    var onCallStaff = [String]()
+}
+var londonCentral = Hospital()
+var londonWest = londonCentral
+londonCentral.onCallStaff.append("Dr Harlan")
+londonWest.onCallStaff.append("Dr Haskins")
+print(londonCentral.onCallStaff.count)
+print(londonWest.onCallStaff.count)
