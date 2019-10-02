@@ -16,16 +16,24 @@ class Dog {
         self.name = name
         self.breed = breed
     }
+    func makeNoise(){
+        print("Woof! Woof!")
+    }
 }
 let frenchie = Dog(name: "Rocky", breed: "French Bulldog")
+frenchie.makeNoise()
+
 
 class BorderCollie: Dog {
     init(name: String){
         super.init(name: name, breed: "BorderColli")
     }
+    override func makeNoise() {
+        print("HAM! HAM!")
+    }
 }
 let borderCollie = BorderCollie(name: "Roger")
-
+borderCollie.makeNoise()
 
 class BoardGame {
     var name: String
@@ -57,6 +65,7 @@ class ThemePark {
 }
 let carousel = ThemePark(rides: ["Cars", "Evil Wheel"])
 
+//Empty class
 class Empty { }
 let nothing = Empty()
 
@@ -122,5 +131,19 @@ class Rectangle: Shape {
         super.init(sides: 4)
     }
 }
+
+//Overriding methods
+
+class Appliance {
+    // if the class doesn't have any parameter you don't need init()
+    func start() {
+        print("Starting...")
+    }
+}
+
+class Oven: Appliance {
+}
+let oven = Oven()
+oven.start()
 
 
