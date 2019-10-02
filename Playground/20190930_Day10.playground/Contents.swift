@@ -147,3 +147,22 @@ let oven = Oven()
 oven.start()
 
 
+//Final classes - when you declare a class as being final, no other class can inherit from it. This means they can’t override your methods in order to change your behavior – they need to use your class the way it was written.
+
+final class Person {
+    var age: Int
+    var name: String
+    
+    init(age: Int, name: String) {
+        self.age = age
+        self.name = name
+    }
+}
+// can't inherit from a final class
+class Young: Person {}
+
+final class Landmark { }
+final class Monument: Landmark { }
+
+class Magazine { }
+final class FashionMagazine: Magazine { }
