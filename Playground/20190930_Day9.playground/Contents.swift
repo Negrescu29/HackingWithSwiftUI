@@ -169,3 +169,18 @@ var ed = Human(name: "Ed")
 
 //If we add the lazy keyword to the familyTree property, then Swift will only create the FamilyTree struct when it’s first accessed:
 ed.familyTree
+
+//Static properties and methods - share specific properties and methods across all instances of the struct by declaring them as `static`
+
+struct Elev {
+    static var classSize = 0
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+        Elev.classSize += 1
+    }
+}
+
+let victor = Elev(name: "Victor")
+let taylor = Elev(name: "Taylor")
