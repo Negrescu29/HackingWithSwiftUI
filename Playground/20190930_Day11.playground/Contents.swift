@@ -65,6 +65,49 @@ protocol Boat: CarriesPassengers, CarriesCargo {
     var name: String { get set }
 }
 
+//Extensions
+
+//Extensions allow you to add methods to existing types, to make them do things they weren’t originally designed to do.
+// Extension should have a return
+
+extension Int {
+    func squared() -> Int {
+        return self * self
+    }
+}
+
+let number = 8
+number.squared()
+
+extension Int {
+    var isEven: Bool {
+        return self % 2 == 0
+    }
+}
+
+extension Double {
+    var isNegative: Bool {
+        return self < 0
+    }
+}
+
+extension Int {
+    func clamped(min: Int, max: Int) -> Int {
+        if (self > max) {
+            return max
+        } else if (self < min) {
+            return min
+        }
+        return self
+    }
+}
+
+extension String {
+    func isUppercased() -> Bool {
+        return self == self.uppercased()
+    }
+}
+
 
 
 
