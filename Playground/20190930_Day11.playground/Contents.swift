@@ -36,4 +36,36 @@ protocol Singable {
     var notes: [String] { get set }
 }
 
+// Protocol inheritance
+
+// You can inherit from multiple protocols at the same time before you add your own customizations on top.
+
+protocol Payable {
+    func calculateWages() -> Int
+}
+
+protocol NeedsTraining {
+    func study()
+}
+
+protocol HasVacation {
+    func takeVacation(days: Int)
+}
+
+protocol Employee: Payable, NeedsTraining, HasVacation { }
+
+protocol CarriesPassengers {
+    // var in protocols should have {get} or {get set}
+    var passengerCount: Int { get set }
+}
+protocol CarriesCargo {
+    var cargoCapacity: Int { get set }
+}
+protocol Boat: CarriesPassengers, CarriesCargo {
+    var name: String { get set }
+}
+
+
+
+
 
