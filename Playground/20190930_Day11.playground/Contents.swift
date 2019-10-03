@@ -167,7 +167,25 @@ extension Hamster {
     }
 }
 
+//Protocol-oriented programming
 
+protocol Identifiable1 {
+    var id: String { get set }
+    func identify()
+}
+
+extension Identifiable1 {
+    func identify() {
+        print("My ID is \(id).")
+    }
+}
+
+struct User1: Identifiable1 {
+    var id: String
+}
+
+let twostraws = User1(id: "twostraws")
+twostraws.identify()
 
 
 
