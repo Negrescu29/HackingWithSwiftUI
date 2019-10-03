@@ -108,6 +108,67 @@ extension String {
     }
 }
 
+//Protocol extensions
+
+let pythons = ["Eric", "Graham", "John", "Michael", "Terry", "Terry"]
+let beatles = Set(["John", "Paul", "George", "Ringo"])
+
+extension Collection {
+    func summarize() {
+        print("There are \(count) of us:")
+
+        for name in self {
+            print(name)
+        }
+    }
+}
+
+pythons.summarize()
+beatles.summarize()
+
+protocol Politician {
+    var isDirty: Bool { get set }
+    func takeBribe()
+}
+extension Politician {
+    func takeBribe() {
+        if isDirty {
+            print("Thank you very much!")
+        } else {
+            print("Someone call the police!")
+        }
+    }
+}
+
+protocol Anime {
+    var availableLanguages: [String] { get set }
+    func watch(in language: String)
+}
+extension Anime {
+    func watch(in language: String) {
+        if availableLanguages.contains(language) {
+            print("Now playing in \(language)")
+        } else {
+            print("Unrecognized language.")
+        }
+    }
+}
+
+protocol Hamster {
+    var name: String { get set }
+    func runInWheel(minutes: Int)
+}
+extension Hamster {
+    func runInWheel(minutes: Int) {
+        print("\(name) is going for a run.")
+        for _ in 0..<minutes {
+            print("Whirr whirr whirr")
+        }
+    }
+}
+
+
+
 
 
 
