@@ -118,3 +118,28 @@ let num = Int(str)!
 // Implicitly unwrapped optionals exist because sometimes a variable will start life as nil, but will always have a value before you need to use it. Because you know they will have a value by the time you need them, it’s helpful not having to write if let all the time.
 
 let an: Int! = nil
+
+// Nil coalescing
+
+// The nil coalescing operator unwraps an optional and returns the value inside if there is one. If there isn’t a value – if the optional was nil – then a default value is used instead
+
+// Can't use nil coalescing across different types 
+
+
+func username(for id: Int) -> String? {
+    if id == 1 {
+        return "Taylor Swift"
+    } else {
+        return nil
+    }
+}
+
+// If we call that with ID 15 we’ll get back nil because the user isn’t recognized, but with nil coalescing we can provide a default value of “Anonymous” like this:
+
+let user = username(for: 15) ?? "Anonymous"
+
+
+let planetNumber: Int? = 426
+var destination = planetNumber ?? 3
+
+
