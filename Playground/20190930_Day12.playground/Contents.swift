@@ -123,7 +123,7 @@ let an: Int! = nil
 
 // The nil coalescing operator unwraps an optional and returns the value inside if there is one. If there isn’t a value – if the optional was nil – then a default value is used instead
 
-// Can't use nil coalescing across different types 
+// Can't use nil coalescing across different types
 
 
 func username(for id: Int) -> String? {
@@ -141,5 +141,26 @@ let user = username(for: 15) ?? "Anonymous"
 
 let planetNumber: Int? = 426
 var destination = planetNumber ?? 3
+
+
+// Optional chaining
+
+let names = ["John", "Paul", "George", "Ringo"]
+
+//use the first property of that array, That question mark is optional chaining – if first returns nil then Swift won’t try to uppercase it, and will set beatle to nil immediately.
+let beatle = names.first?.uppercased()
+
+func albumReleased(in year: Int) -> String? {
+    switch year {
+    case 2006: return "Taylor Swift"
+    case 2008: return "Fearless"
+    case 2010: return "Speak Now"
+    case 2012: return "Red"
+    case 2014: return "1989"
+    case 2017: return "Reputation"
+    default: return nil
+    }
+}
+let album = albumReleased(in: 2006)?.uppercased()
 
 
