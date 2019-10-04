@@ -102,3 +102,15 @@ let job = "engineer"
 describe(occupation: job)
 
 
+// Force unwrapping
+// if you have a string that contains a number, you can convert it to an Int like this:
+
+let str = "5"
+let num = Int(str)!
+
+//password is set to nil, and force unwrapping that will crash.
+
+//let password: String? = nil
+//let unwrappedPassword = password!
+
+
