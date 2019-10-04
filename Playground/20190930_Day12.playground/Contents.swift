@@ -113,4 +113,8 @@ let num = Int(str)!
 //let password: String? = nil
 //let unwrappedPassword = password!
 
+// Implicitly unwrapped optionals
 
+// Implicitly unwrapped optionals exist because sometimes a variable will start life as nil, but will always have a value before you need to use it. Because you know they will have a value by the time you need them, it’s helpful not having to write if let all the time.
+
+let an: Int! = nil
