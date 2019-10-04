@@ -22,4 +22,83 @@ if let movie = favoriteMovie {
     print("You don't have a favorite movie.")
 }
 
+// Unwrapping with guard
+// Guard let will unwrap an optional for you, but if it finds nil inside it expects you to exit the function, loop, or condition you used it in.
+
+// Major difference between if let and guard let is that your unwrapped optional remains usable after the guard code.
+
+// Using guard let lets you deal with problems at the start of your functions, then exit immediately
+
+func greet(_ name: String?) {
+    guard let unwrapped = name else {
+        print("You didn't provide a name!")
+        return
+    }
+
+    print("Hello, \(unwrapped)!")
+}
+
+func double(number: Int?) -> Int? {
+    guard let number = number else {
+        return nil
+    }
+    return number * 2
+}
+let input = 5
+if let doubled = double(number: input) {
+    print("\(input) doubled is \(doubled).")
+}
+
+func uppercase(string: String?) -> String? {
+    guard let string = string else {
+        return nil
+    }
+    return string.uppercased()
+}
+if let result = uppercase(string: "Hello") {
+    print(result)
+}
+
+func isLongEnough(_ string: String?) -> Bool {
+    guard let string = string else { return false }
+    if string.count >= 8 {
+        return true
+    } else {
+        return false
+    }
+}
+if isLongEnough("Mario Odyssey") {
+    print("Let's play that!")
+}
+
+func test(number: Int?) {
+    guard let number = number else { return }
+    print("Number is \(number)")
+}
+test(number: 42)
+
+func username(for id: Int?) -> String? {
+    guard let id = id else {
+        return nil
+    }
+    if id == 1989 {
+        return "Taylor Swift"
+    } else {
+        return nil
+    }
+}
+if let user = username(for: 1989) {
+    print("Hello, \(user)!")
+}
+
+func describe(occupation: String?) {
+    guard let occupation = occupation else {
+        print("You don't have a job.")
+        return
+    }
+    print("You are an \(occupation).")
+}
+let job = "engineer"
+describe(occupation: job)
+
 
