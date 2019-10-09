@@ -10,7 +10,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        //Forms are scrolling lists of static controls like text and images, but can also include user interactive controls like text fields, toggle switches, buttons, and more.
+        Form {
+            Group{
+                Text("This is a group in a form")
+            }
+            
+            Group{
+                Text("This is a second group in form")
+            }
+            
+            Section {
+                Text("This is a section number one")
+            }
+            
+            Section {
+                Text("This is a section number 2")
+            }
+        }
     }
 }
 
